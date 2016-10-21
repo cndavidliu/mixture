@@ -1,6 +1,6 @@
 package com.mauvesu.mixture.jdk.basis;
 
-public enum Subject {
+public enum EnumSample {
 	
 	MATH("math", 5, 2.0f),
 	CHINESE("chinese", 3, 1.5f),
@@ -10,7 +10,7 @@ public enum Subject {
 	private int level;
 	private float credit;
 	
-	private Subject(String name, int levvel, float credit) {
+	private EnumSample(String name, int levvel, float credit) {
 		this.name = name;
 		this.level = levvel;
 		this.credit = credit;

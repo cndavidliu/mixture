@@ -6,7 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import com.mauvesu.mixture.jdk.basis.Subject;
+import com.mauvesu.mixture.jdk.basis.EnumSample;
 
 public class EnumTest {
 	
@@ -15,11 +15,11 @@ public class EnumTest {
 	
 	@Test
 	public void testEnum() {
-		Subject subject = Subject.CHINESE;
-		assertTrue(Subject.valueOf("CHINESE") instanceof Subject);
-		assertEquals(subject, Subject.valueOf("CHINESE"));
+		EnumSample subject = EnumSample.CHINESE;
+		assertTrue(EnumSample.valueOf("CHINESE") instanceof EnumSample);
+		assertEquals(subject, EnumSample.valueOf("CHINESE"));
 		this.exception.expect(IllegalArgumentException.class);
-		Subject.valueOf("Chinese");
-		assertEquals(3, Subject.values().length);
+		EnumSample.valueOf("Chinese");
+		assertEquals(3, EnumSample.values().length);
 	}
 }

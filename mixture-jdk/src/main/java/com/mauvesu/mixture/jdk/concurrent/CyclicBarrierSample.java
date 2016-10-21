@@ -6,7 +6,7 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Cyclic {
+public class CyclicBarrierSample {
 	
 	private int size = 5;
 	private CyclicBarrier barrier = new CyclicBarrier(size);
@@ -48,6 +48,6 @@ public class Cyclic {
 	}
 	
 	public static void main(String[] args) {
-		new Cyclic().run();
+		new CyclicBarrierSample().run();
 	}
 }
