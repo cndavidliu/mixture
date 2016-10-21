@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>com.mauvesu.mixture</groupId>
+    <artifactId>mixture-root</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>mixture root</name>
+    <description>interesting mixture</description>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>mixture-jdk</module>
+        <module>mixture-algorithm</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <app.run.env>local</app.run.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>common</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <app.run.env>common</app.run.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>release</id>
+            <properties>
+                <app.run.env>release</app.run.env>
+            </properties>
+        </profile>
+    </profiles>
+    
+	<properties>
+        <java.version>1.7</java.version>
+        <junit.version>4.11</junit.version>   
+        <mixture.version>1.0-SNAPSHOT</mixture.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.mauvesu.mixture</groupId>
+                <artifactId>mixture-jdk</artifactId>
+                <version>${mixture.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mauvesu.mixture</groupId>
+                <artifactId>mixture-algorithm</artifactId>
+                <version>${mixture.version}</version>
+            </dependency>
+
+            <!--test-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-resources-plugin</artifactId>  
+                <version>2.6</version>  
+                <configuration>  
+                    <encoding>UTF-8</encoding>  
+                </configuration>  
+            </plugin>
+       </plugins>
+         <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>2.9</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.2.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
