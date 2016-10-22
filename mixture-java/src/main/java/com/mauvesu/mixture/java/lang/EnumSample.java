@@ -1,4 +1,4 @@
-package com.mauvesu.mixture.jdk.basis;
+package com.mauvesu.mixture.java.lang;
 
 public enum EnumSample {
 	

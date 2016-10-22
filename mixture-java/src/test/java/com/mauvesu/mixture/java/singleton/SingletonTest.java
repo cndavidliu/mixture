@@ -1,10 +1,10 @@
-package com.mauvesu.mixture.jdk.basis;
+package com.mauvesu.mixture.java.singleton;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import com.mauvesu.mixture.jdk.basis.singleton.HungrySingleton;
-import com.mauvesu.mixture.jdk.basis.singleton.SyncInnerLazySingleton;
+import com.mauvesu.mixture.java.singleton.HungrySingleton;
+import com.mauvesu.mixture.java.singleton.SyncInnerLazySingleton;
 
 public class SingletonTest {
 	

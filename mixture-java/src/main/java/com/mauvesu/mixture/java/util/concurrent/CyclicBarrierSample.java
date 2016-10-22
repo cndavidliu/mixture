@@ -1,4 +1,4 @@
-package com.mauvesu.mixture.jdk.concurrent;
+package com.mauvesu.mixture.java.util.concurrent;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;

@@ -1,4 +1,4 @@
-package com.mauvesu.mixture.jdk.basis.singleton;
+package com.mauvesu.mixture.java.singleton;
 
 /**
  * Hungry Singleton

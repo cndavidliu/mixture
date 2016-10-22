@@ -1,4 +1,4 @@
-package com.mauvesu.mixture.jdk.basis.singleton;
+package com.mauvesu.mixture.java.singleton;
 
 /**
  * Lazy Singleton implement in async module, isn't thread safe.

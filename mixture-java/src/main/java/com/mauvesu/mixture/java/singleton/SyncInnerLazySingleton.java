@@ -1,4 +1,4 @@
-package com.mauvesu.mixture.jdk.basis.singleton;
+package com.mauvesu.mixture.java.singleton;
 
 /**
  * Lazy Singleton in sync module, using static inner class

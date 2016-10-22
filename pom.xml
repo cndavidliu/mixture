@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>mixture-jdk</module>
+        <module>mixture-java</module>
         <module>mixture-algorithm</module>
     </modules>
 

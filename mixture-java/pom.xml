@@ -10,7 +10,7 @@
     </parent>
     
     <groupId>com.mauvesu.mixture</groupId>
-    <artifactId>mixture-jdk</artifactId>
+    <artifactId>mixture-java</artifactId>
     <version>${mixture.version}</version>
     <name>mixture java</name>
 
