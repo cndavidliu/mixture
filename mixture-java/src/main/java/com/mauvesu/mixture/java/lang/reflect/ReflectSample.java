@@ -27,18 +27,18 @@ abstract class Base {
  * @author mauvesu
  *
  */
-public class Sample extends Base {
+public class ReflectSample extends Base {
 	
 	private static final int MAX_LEN = 10;
 	
 	private String name;
 	private int id;
 	
-	public Sample() {
+	public ReflectSample() {
 		this(null, -1);
 	}
 	
-	public Sample(String name, int id) {
+	public ReflectSample(String name, int id) {
 		this.name = name;
 		this.id = id;
 	}
@@ -69,10 +69,10 @@ public class Sample extends Base {
 	}
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
-		Sample sample = Sample.class.newInstance();
-		Method method = Sample.class.getMethod("talk", new Class<?>[]{String.class});
+		ReflectSample sample = ReflectSample.class.newInstance();
+		Method method = ReflectSample.class.getMethod("talk", new Class<?>[]{String.class});
 		method.invoke(sample, new Object[]{"test"});
-		method = Sample.class.getDeclaredMethod("hash", new Class<?>[]{});
+		method = ReflectSample.class.getDeclaredMethod("hash", new Class<?>[]{});
 		method.setAccessible(true);
 		method.invoke(sample, new Object[]{});
 	}

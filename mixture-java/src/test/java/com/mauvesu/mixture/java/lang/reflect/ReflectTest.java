@@ -17,14 +17,14 @@ public class ReflectTest {
 	
 	@Test
 	public void testConstruct() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-		Sample sample = Sample.class.newInstance();
+		ReflectSample sample = ReflectSample.class.newInstance();
 		assertNull(sample.getName());
 		assertEquals(-1, sample.getId());
 		
 		@SuppressWarnings("unchecked")
-		Constructor<Sample>[] constructors = (Constructor<Sample>[]) sample.getClass().getConstructors();
+		Constructor<ReflectSample>[] constructors = (Constructor<ReflectSample>[]) sample.getClass().getConstructors();
 		assertEquals(2, constructors.length);
-		for(Constructor<Sample> constructor : constructors) {
+		for(Constructor<ReflectSample> constructor : constructors) {
 			assertFalse(constructor.isAccessible());
 			if(constructor.getParameterCount() == 0) {
 				sample = constructor.newInstance(new Object[]{});
@@ -36,17 +36,17 @@ public class ReflectTest {
 			}
 		}
 		
-		Constructor<Sample> constructor = Sample.class.getConstructor(new Class<?>[]{String.class, int.class});
+		Constructor<ReflectSample> constructor = ReflectSample.class.getConstructor(new Class<?>[]{String.class, int.class});
 		sample = constructor.newInstance(new Object[]{"try", "try".hashCode()});
 		assertEquals("try", sample.getName());
 		
 		expected.expect(NoSuchMethodException.class);
-		constructor = Sample.class.getConstructor(new Class<?>[]{String.class});
+		constructor = ReflectSample.class.getConstructor(new Class<?>[]{String.class});
 	}
 	
 	@Test
 	public void testMethod() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		Sample sample = new Sample("content", 1);
+		ReflectSample sample = new ReflectSample("content", 1);
 		Method[] methods = sample.getClass().getMethods();
 		Method[] declaredMethods = sample.getClass().getDeclaredMethods();
 		assertEquals(8, declaredMethods.length);
@@ -91,14 +91,14 @@ public class ReflectTest {
 	
 	@Test
 	public void testApis() {
-		assertFalse(Sample.class.isInterface());
-		assertTrue(Sample.class.isInstance(new Sample()));
-		assertFalse(Sample.class.isInstance(new String()));
-		assertTrue(Sample.class.isInstance(new SampleChild()));
-		assertFalse(SampleChild.class.isInstance(new Sample()));
-		System.out.println(Sample.class.getPackage());
+		assertFalse(ReflectSample.class.isInterface());
+		assertTrue(ReflectSample.class.isInstance(new ReflectSample()));
+		assertFalse(ReflectSample.class.isInstance(new String()));
+		assertTrue(ReflectSample.class.isInstance(new SampleChild()));
+		assertFalse(SampleChild.class.isInstance(new ReflectSample()));
+		System.out.println(ReflectSample.class.getPackage());
 	}
 	
-	private static class SampleChild extends Sample {		
+	private static class SampleChild extends ReflectSample {		
 	}
 }
