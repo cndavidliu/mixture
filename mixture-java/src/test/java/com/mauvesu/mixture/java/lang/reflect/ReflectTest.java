@@ -3,6 +3,7 @@ package com.mauvesu.mixture.java.lang.reflect;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -60,6 +61,15 @@ public class ReflectTest {
 		}
 		method = sample.getClass().getMethod("talk", new Class<?>[]{String.class});
 		method.invoke(sample, new Object[]{"test"});
+		
+		//invoke static method
+		method = ReflectSample.class.getMethod("main", new Class<?>[]{String[].class});
+		try {
+			method.invoke(ReflectSample.class, new Object[]{new String[]{}});
+			fail();
+		} catch (InvocationTargetException e) {
+		}
+		
 		try {
 			method = sample.getClass().getDeclaredMethod("say", new Class<?>[]{String.class});
 			method.invoke(sample, new Object[]{"test"});
@@ -97,6 +107,21 @@ public class ReflectTest {
 		assertTrue(ReflectSample.class.isInstance(new SampleChild()));
 		assertFalse(SampleChild.class.isInstance(new ReflectSample()));
 		System.out.println(ReflectSample.class.getPackage());
+	}
+	
+	@Test
+	public void testField() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		// private static field
+		Field field = ReflectSample.class.getDeclaredField("MAX_LEN");
+		field.setAccessible(true);
+		System.out.println(field.get(ReflectSample.class));
+		//private field
+		ReflectSample sample = new ReflectSample(null, 1);
+		field = ReflectSample.class.getDeclaredField("id");
+		field.setAccessible(true);
+		assertEquals(sample.getId(), field.get(sample));
+		field.setInt(sample, 2);
+		assertEquals(2, sample.getId());	
 	}
 	
 	private static class SampleChild extends ReflectSample {		
