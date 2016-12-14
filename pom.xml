@@ -45,6 +45,7 @@
         <java.version>1.7</java.version>
         <junit.version>4.11</junit.version>   
         <mixture.version>1.0-SNAPSHOT</mixture.version>
+        <redis.version>2.7.2</redis.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -65,6 +66,12 @@
                 <groupId>com.mauvesu.mixture</groupId>
                 <artifactId>mixture-facility</artifactId>
                 <version>${mixture.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.version}</version>
             </dependency>
 
             <!--test-->
