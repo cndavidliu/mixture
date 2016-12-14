@@ -61,6 +61,11 @@
                 <artifactId>mixture-algorithm</artifactId>
                 <version>${mixture.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.mauvesu.mixture</groupId>
+                <artifactId>mixture-facility</artifactId>
+                <version>${mixture.version}</version>
+            </dependency>
 
             <!--test-->
             <dependency>
