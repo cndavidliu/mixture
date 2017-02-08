@@ -11,7 +11,7 @@ public class SyncInnerLazySingleton extends BaseSingleton{
 	private SyncInnerLazySingleton() {
 	}
 	
-	public static class SingletonHolder {
+	private static class SingletonHolder {
 		public static SyncInnerLazySingleton singleton = new SyncInnerLazySingleton();
 	}
 	
